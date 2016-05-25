@@ -4,6 +4,11 @@
         <title>AGT MISS-U</title>
     </head>
     <body>
-        <button>Login</button>
+        <form action='https://instagram.com/oauth/authorize/' method='GET'>
+            <input type='submit' value='Login' />
+            <input type='hidden' name='client_id' value='bb7a40cc1bcc4cf98af742aba31133a5' />
+            <input type='hidden' name='redirect_uri' value='http://remarkablemark.org/agt-missu/' />
+            <input type='hidden' name='response_type' value='token' />
+        </form>
     </body>
 </html>
