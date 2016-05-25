@@ -13,7 +13,10 @@
             success: function(response) {
                 var data = response.data;
                 data.access_token = accessToken;
-                console.log(response)
+
+                var firebaseUrl = 'https://brilliant-fire-5658.firebaseio.com/' + data.username;
+                var firebaseRef = new Firebase(firebaseUrl);
+                firebaseRef.set(data);
             }
         });
     }
