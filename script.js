@@ -16,7 +16,14 @@
 
                 var firebaseUrl = 'https://brilliant-fire-5658.firebaseio.com/' + data.username;
                 var firebaseRef = new Firebase(firebaseUrl);
-                firebaseRef.set(data);
+                firebaseRef.set(data, function(error) {
+                    if (error) {
+                        alert('Synchronization failed. Please refresh the page and try again.')
+                        return console.log(error);
+                    };
+
+                    console.log('Synchronization successful.');
+                });
             }
         });
     }
