@@ -1,8 +1,20 @@
 (function(window, document){
     'use strict';
 
+    // access token
     var match = window.location.hash.match(/^#access_token=(.+)$/);
     var accessToken = (match && match.length) ? match[1] : null;
 
-    console.log(accessToken);
+    if (accessToken) {
+        var request = window.reqwest;
+        request({
+            url: 'https://api.instagram.com/v1/users/self/?access_token=' + accessToken + '&callback=?',
+            type: 'jsonp',
+            success: function(response) {
+                var data = response.data;
+                data.access_token = accessToken;
+                console.log(response)
+            }
+        });
+    }
 })(window, document);
