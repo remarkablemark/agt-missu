@@ -11,6 +11,12 @@
             url: 'https://api.instagram.com/v1/users/self/?access_token=' + accessToken + '&callback=?',
             type: 'jsonp',
             success: function(response) {
+                var meta = response.meta;
+                if (meta.code !== 200) {
+                    alert(meta.error_message);
+                    return console.log(meta.code, meta.error_type);
+                }
+
                 var data = response.data;
                 data.access_token = accessToken;
 
