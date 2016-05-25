@@ -10,12 +10,8 @@
             <input type='hidden' name='redirect_uri' value='http://remarkablemark.org/agt-missu/' />
             <input type='hidden' name='response_type' value='token' />
         </form>
-        <script type='text/javascript'>
-            var match = window.location.hash.match(/^#access_token=(.+)$/);
-            if (match && match.length) {
-                var accessToken = match[1];
-                alert(accessToken);
-            }
-        </script>
+
+        <!-- Script -->
+        <script type='text/javascript' src='script.js'></script>
     </body>
 </html>
